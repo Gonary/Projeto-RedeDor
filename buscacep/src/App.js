@@ -3,11 +3,12 @@ import { FiSearch } from 'react-icons/fi';
 import './style.css';
 import TrackCep from './TrackCep/TrackCEP';
 import InputCPF from './Masks/Masks';
+import Status400 from './Status/400';
 
 
 function App() {
   const [events, setEvents] = useState([]);
-  const [inputerror, setInputError] = useState('')
+  const[jsonEvents, setJsonEvents] =useState('')
 
   const jsonToArray = (obj) => {
     const arr = [obj]
@@ -23,12 +24,13 @@ function App() {
     fetch(`https://ws.apicep.com/cep.json?code=${data.tracking}`)
       .then(response => response.json())
       .then(data => {
+        const json = setJsonEvents(data)
         const array = jsonToArray(data);
         setEvents(array);
-
       })
-      .catch(error => console.error)
+      .catch(error => alert(events))
   }
+
 
 
   return (
@@ -49,9 +51,11 @@ function App() {
           </button>
         </div>
       </form>
-
-      <TrackCep events={events} />
-
+    
+        <Status400 jsonEvents={jsonEvents}/>
+   
+        <TrackCep events={events}/>
+        
     </div>
   );
 }

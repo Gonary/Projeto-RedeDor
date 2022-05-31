@@ -1,0 +1,43 @@
+.mainStatus400{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #FFF;
+    width: 500px;
+    border-radius: 8px;
+}
+
+.mainStatus400 h2{
+    color: red;
+    margin: 16px 0;
+    font-size: 39px;
+}
+
+.mainStatus400 span{
+    color: red;
+    margin-bottom: 16px;
+    font-weight: bold;
+}
+
+.list{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width:712px){
+
+    mainStatus400{
+        width: 80%;
+        min-height: 250px;
+    }
+}
+
+@media (max-width:505px){
+    mainStatus400{
+        width: 60%;
+        min-height: 200px;
+    }
+}
